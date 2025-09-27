@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intranet - Empresa ABC</title>
+</head>
+<body>
+    <h1>Bienvenido(a) a mi Intranet</h1>
+    <br>
+    <label for="ingresar sus datos">Ingresar sus Datos</label><br><br>
+    <label for="usuario">Usuario</label>
+    <input type="text" id="usuario"><br><br>
+    <label for="contraseña">Contraseña</label>
+    <input type="password" id="clave"><br><br>
+    <button id="acceso" type="submit" onclick="ingresar()">Ingresar</button>
+
+<script>
+    function ingresar()
+    {
+
+        var usuario=document.getElementById("usuario");
+        var clave = document.getElementById("clave");
+
+        if( usuario.value=="admin" && clave.value=="123"){ 
+
+                 alert('Bienvenido Administrador');
+                // window.open("intranet/acceso.html","Certus","width=600, height=800");
+                window.location="intranet/acceso.html";
+        }else{
+                 alert('Usuario Intruso');
+        }
+
+    }
+</script>
+
+</body>
+</html>
