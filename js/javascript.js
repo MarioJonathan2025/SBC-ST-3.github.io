@@ -1,22 +1,22 @@
-var nombre="pepito"; // Esto es una variable String
+var nombre="Renzin";// variable string
 alert(nombre);
-var alumnos=["maria",20,"pepíto",18,"puma",60,"jose jose",80]; // Esto es un Arreglo (Letras y numeros)
-alert(alumnos); 
-var edad=20; // Esto es una variable : guardar numero entero
-alert(edad);
-const  alumnos2={
-   dni: 9999999,
-   nombre : "pepito",
-   celular : 955822155,
-   distrito: "surco",
-   dni2: 88888888,
-   nombre2: "jose jose",
-   celular2: 955888855,
-   distrito2: "sjl",
-   dni3: 666666666,
-   nombre3 : "puma",
-   celular3 : 88558888,
-   distrito3: "Callao",
+
+var compañeros=["David",20,"Jhon",27,"Samir",26,"Ernesto",30];// esto es un arreglo
+alert(compañeros)
+
+var edad=28;// variable numero
+alert(edad)
+
+var certus={
+    dni: 88888888,
+    nombre: "david",
+    celular: 999999999,
+    distrito: "Miraflores",
+    dni: 55555555,
+    nombre: "Jhon",
+    celular: 919191911,
+    distrito: "Paucarpata"
 };
-alert(alumnos2); // el alert por temas seguridad javascript no te muestra la data pero los object
-console.table(alumnos2); // puedes ver la data de la certus que son todos los registros de los alumnos.
+alert(certus);//por tema de seguridad, javascript no muestra la data del
+console.table(certus);
+//console.log(certus)// te deja ver la data del object
