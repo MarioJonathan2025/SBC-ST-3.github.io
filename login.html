@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +8,8 @@
     <title>Intranet SBC</title>
 </head>
 <body>
+
+    <!------------ FORMULARIO ------------>
     <h1>Bienvenidos a mi Intranet</h1>
     <br>
     <label for="">Ingresar sus datos</label><br>
@@ -19,26 +20,28 @@
     <label for="">Contraseña</label>
     <input type="password" id="clave"><br><br>
 
-    <button type="submit" id="admin">Ingresar</button>
+    <button type="submit" id="acceso" onclick="Ingresar()">Ingresar</button><!-- onclick=Ingresar() es para llamar la funcion -->
 
 
     <script>
 
-        var usuario=document.getElementById("usuario"); //nos permite reconocer nombres unicos
+        var usuario = document.getElementById("usuario"); //nos permite reconocer nombres unicos
         
         function Ingresar()
         {
 
-            var usuario = document.getElementById("usuario");
-            var clave = document.getElementById("clave");
+            var usuario = document.getElementById("usuario");// INPUT
+            var clave = document.getElementById("clave");// INPUT
 
-            if(usuario.value == "admin" && clave.value == "123"){ // DOble igual es para comparar
+            if(usuario.value == "admin" && clave.value == "123"){ // DOble igual es para comparar //TODO ESTE IF ES PARA ACCESO AL SISTEMA
 
                 alert('Bienvenido Administrador');
+                //window.open("intranet/acceso.html","Certus","width=600, height=800"); //para llamar pagina web
+                window.location = "intranet/acceso.html";
 
             }else{
                 
-                alert('Bienvenido Usuario');
+                alert('Intruso XDXDXD!!!!!!');
             }
         }
 
