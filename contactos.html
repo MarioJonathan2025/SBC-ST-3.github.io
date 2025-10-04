@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/bootstrap 3.3.4.css">
+</head>
+<body>
+    Buscador de google:
+    <div class="container">
+        <div class="form-group">
+
+            <form method="get" class="navbar-form navbar-left" action="http://www.google.com/search" target="_blank">
+                <fieldset>
+                    <input type="text" name="q" id="buscar" size="30" class="form-control" maxlength="255" value="">
+                    <input type="hidden" name="hl" value="es">
+                    <input type="submit" class="btn btn-default" name="btnG" value="Busqueda Google">
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+    <br>
+    FORMULARIO ALUMNOS:
+    <br>
+    Nombre:
+    <input type="text" id="nombre">
+
+    Correo
+    <input type="text" id="correo">
+
+    DNI:
+    <input type="text" id="dni" maxlength="8" onkeypress="return validarDNI(event)" >
+
+    Validar Correo
+    <input type="button" id="ingresar" value="Ingresar" onclick="validarCorreo()">
+
+    <script>
+        function validarDNI(event){
+            if(event.keyCode>64 && event.keyCode<126) event.returnValue = false; //BLOQUE PARA LETRAS en DNI
+        }
+
+        function validarCorreo(){
+            var expresion=/^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i;
+            var correo = document.getElementById("correo").value;
+            var validar = expresion.test(correo);
+
+            if(validar == true){
+                alert('Correo es valido');
+            }else{
+                alert('Correo invalido!!! \nFavor de consultar al area de TI');
+            }
+        }
+    </script>
+
+</body>
+</html>
