@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario Contacto - HTML5, CSS3, JAVASCRIPT</title>
+
+	<link rel="stylesheet" href="css/estilosformulario.css" />
+	
+	<script type="text/javascript" src="js/form.js"></script>
+	
+
+</head>
+<body>
+	<section>
+		<h2>Formulario Contacto</h2>
+	
+		<form action="" class="contact-form" onsubmit="return validar(this);">				
+			<div class="formulario">
+				<div class="column">
+					<label for="nombre">Nombre <span>(requerido)</span></label>
+					<input type="text" name="nombre" class="form-input" onblur="revisar(this);"/>
+					
+					<label for="email">Email <span>(requerido)</span></label>
+					<input type="email" name="email" class="form-input" onblur="revisar(this); revisaremail(this);"/>
+					
+					<label for="asunto">Asunto <span>(requerido)</span></label>
+					<input type="text" name="asunto" class="form-input" onblur="revisar(this);"/>
+				</div>
+				
+				<div class="column">
+					<label for="mensaje">Mensaje </label>
+					<textarea name="mensaje" class="form-input" ></textarea>
+				</div>				
+				
+				<input class="form-btn" type="submit" value="Enviar Mensaje" />
+    
+			</div>		
+		</form>
+	</section>
+	
+</body>
+</html>
