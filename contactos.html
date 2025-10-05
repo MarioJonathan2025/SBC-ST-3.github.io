@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,7 @@
     FORMULARIO ALUMNOS:
     <br>
     Nombre:
-    <input type="text" id="nombre">
+    <input type="text" id="nombre" onkeypress="return validarNombre(event)">
 
     Correo
     <input type="text" id="correo">
@@ -39,8 +39,9 @@
     <input type="button" id="ingresar" value="Ingresar" onclick="validarCorreo()">
 
     <script>
-        function validarDNI(event){
-            if(event.keyCode>64 && event.keyCode<126) event.returnValue = false; //BLOQUE PARA LETRAS en DNI
+
+        function validarNombre(event){
+            if(event.keyCode > 32 && event.keyCode < 64) event.returnValue = false;
         }
 
         function validarCorreo(){
@@ -53,6 +54,10 @@
             }else{
                 alert('Correo invalido!!! \nFavor de consultar al area de TI');
             }
+        }
+
+        function validarDNI(event){
+            if(event.keyCode >64 && event.keyCode < 126) event.returnValue = false; //BLOQUE PARA LETRAS en DNI
         }
     </script>
 
