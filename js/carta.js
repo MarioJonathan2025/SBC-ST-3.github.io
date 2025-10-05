@@ -1,6 +1,9 @@
 function revisar(elemento) {
+    
+
     if (elemento.value==""){
         elemento.className='error';
+
     } else {
         elemento.className='form-input';
     }
@@ -20,9 +23,12 @@ function revisaremail(elemento) {
 
 
 function validar(form) {
+  let warnings = "";
+
   if(form.nombre.value=="") { //Si este campo está vacío
     alert('No has escrito tu nombre'); // Mensaje a mostrar
     return false; //devolvemos un valor negativo
+    warnings += 'Este campo es necesario'
   }
   
   if(form.email.value=="") { //Si este campo está vacío

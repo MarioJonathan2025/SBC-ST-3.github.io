@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'Livvic';
+    src: url(../fonts/Livvic/Livvic-Regular.ttf);
+}
+
+:root{
+    --colorTextos: #49454567;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Livvic';
+}
+
+body{
+    background: #f12711;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    height: 650px;/*para usar flexbox en el  form, segun video*/
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    text-align: center;
+    font-weight: 700;
+}
+
+form{
+    background: #fff;
+    padding: 40px 0;
+    box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);/* EFECTO NEON*/
+    border-radius: 20px;
+}
+
+.form{
+    width: 100%;
+    margin: auto;
+}
+
+form .grupo{
+    position: relative; /* para usar luego posiciones absolutas */
+    margin: 45px;
+}
+
+input{
+    background: none;
+    color: #c6c6c6;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block; /* para que se pongan una abajo del otro entre los input y label*/
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--colorTextos);/* VARIABLE SOBRE CSS AVANZADO, PERTENECE A :ROOT*/
+}
+
+input:focus{/* focus es un driver */
+    outline: none;
+    color: #5e5b5d /* cuando estamos en el campo tendra este color, y al salir tendra del input*/
+}
+
+label{
+    color: var(--colorTextos);
+    font-size: 16px;
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    top: 10px;
+    transition: 0.5s ease-in-out all;
+    pointer-events: none;
+}
+
+input:focus~label{/* CREA ANIMACION PARA SUBIR 14PX HACIA ARRIBA*/
+    top: -14px;
+    font-size: 12px;
+    color: #2196f3;
+}

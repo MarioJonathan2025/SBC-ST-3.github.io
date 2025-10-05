@@ -148,12 +148,13 @@ textarea.form-input {
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
 }
 
-.warnings{
+#warnings{
 	width: 200px;
 	text-align: center;
 	margin: auto;
 	color: red;
 	padding-top: 20px;
+	opacity: 1;
 }
 
 
