@@ -75,8 +75,52 @@ label{
     pointer-events: none;
 }
 
-input:focus~label{/* CREA ANIMACION PARA SUBIR 14PX HACIA ARRIBA*/
+input:focus~label,/* CREA ANIMACION PARA SUBIR 14PX HACIA ARRIBA*/
+input:valid~label{/* para que no baje cuando se ingrese caracteres al input*/
     top: -14px;
     font-size: 12px;
     color: #2196f3;
+}
+
+.barra{ /* comenzamos para poner efecto en la barra */
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.barra::before{ /* para la transicion del efecto antes de estar en focus en los campos*/
+    content: "";
+    height: 2px;
+    width: 0%;
+    bottom: 0;
+    position: absolute;
+    background: linear-gradient(to right, #f5af19, #f12711);
+    transition: 0.3s ease width;
+    left: 0;
+}
+
+input:focus~.barra::before{/* efecto al estar en focus en el campo */
+    width: 100%;
+}
+
+button{
+    background: #f12711;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f5af19, #f12711);
+
+    border: none;
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    color: #fff;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:500px) {
+    form{
+        margin: auto;
+        width: 80%;
+    }
 }
