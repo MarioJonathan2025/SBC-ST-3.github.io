@@ -4,6 +4,8 @@ const pass = document.getElementById("password");
 const form = document.getElementById("form");
 const parrafo = document.getElementById("warnings");
 
+const section = document.getElementById("form-1");
+
 form.addEventListener("submit", e=>{
 
     e.preventDefault();
@@ -31,5 +33,11 @@ form.addEventListener("submit", e=>{
         parrafo.innerHTML = warnings;
     }else{
         parrafo.innerHTML = 'enviado';
+    }
+
+    if(warnings){
+        section.style.height = '600px';
+    }else{
+        section.style.height = '550px';
     }
 })
