@@ -21,7 +21,6 @@
     background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     height: 550px;/*para usar flexbox en el  form, segun video*/
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,7 +71,7 @@ label{
     bottom: 0;
     left: 5px;
     top: 10px;
-    transition: 0.5s ease-in-out all;
+    transition: 0.5s ease all;
     pointer-events: none;
 }
 
@@ -134,3 +133,8 @@ button{
         width: 80%;
     }
 }
+
+/* ----------INFORMACION-----------*/
+/* SI SE QUITA LOS "REQUIRED" DE LAS ETIQUETAS INPUT, EL EFECTO DE TRANSICION 
+input:focus~label,input:valid~label NO FUNCIONARA
+Y TAMPOCO APARECERA LOS TEXTOS ROJOS AL DAR RAPIDAMENTE AL BOTON "REGISTRARSE"*/
