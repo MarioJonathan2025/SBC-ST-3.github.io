@@ -1804,7 +1804,7 @@
 		letter-spacing: 0.5px;
 	}
 
-		body.is-loading *, body.is-resizing * {
+		body.is-loading *, body.is-resizing * { /* IMPORTANTE USAR ESTO */
 			-moz-transition: none !important;
 			-webkit-transition: none !important;
 			-ms-transition: none !important;
