@@ -57,12 +57,12 @@
 				$(':last-child').addClass('last-child');
 
 		// Gallery.
-			$window.on('load', function() {
+			$window.on('load', function() { /* FONDE MEDIO OSCURO DONDE APARECERÁ LA IMAGEN EMERGENTE */
 				$('.gallery').poptrox({
 					baseZIndex: 10001,
 					useBodyOverflow: false,
 					usePopupEasyClose: false,
-					overlayColor: '#1f2328',
+					overlayColor: '#1f2328', // ESTE ES EL COLOR DE FONDO ME OSCURO */
 					overlayOpacity: 0.65,
 					usePopupDefaultStyling: false,
 					usePopupCaption: true,
@@ -157,7 +157,7 @@
 						$('#contact')
 							.scrollex({
 								top:		'50%',
-								delay:		50,
+								delay:		50, /* TIEMPO EL QUE DEMORA APARECERA HACIA ARRIBA */
 								initialize:	function() { $(this).addClass('inactive'); },
 								terminate:	function() { $(this).removeClass('inactive'); },
 								enter:		function() { $(this).removeClass('inactive'); },

@@ -2394,7 +2394,7 @@
 
 /* Spinner */
 
-	@-moz-keyframes spinner-rotate {
+	@-moz-keyframes spinner-rotate { /* efecto circulo en grio de espera */
 		0% {
 			-moz-transform: scale(1) rotate(0deg);
 			-webkit-transform: scale(1) rotate(0deg);
@@ -3015,14 +3015,14 @@
 
 /* Poptrox */
 
-	.poptrox-popup {
+	.poptrox-popup { 
 		-moz-box-sizing: content-box;
 		-webkit-box-sizing: content-box;
 		-ms-box-sizing: content-box;
 		box-sizing: content-box;
-		background: #fff;
+		background: #fff; /* AREA DONDE APARECER LA IMAGEN */
 		padding-bottom: 3em;
-		box-shadow: 0 0.1em 0.15em 0 rgba(0, 0, 0, 0.15);
+		box-shadow: 0 0.1em 0.15em 0 rgba(0, 221, 52, 0.15); /* MARCO DE VENTANA EMERGENTE */
 	}
 
 		.poptrox-popup .loader {
@@ -3060,11 +3060,11 @@
 				width: 2em;
 			}
 
-		.poptrox-popup .caption {
+		.poptrox-popup .caption {/* TEXTO INFERIOR DE IMAGEN */
 			position: absolute;
 			bottom: 0;
 			left: 0;
-			background: #fff;
+			background: #ffffff;
 			width: 100%;
 			height: 3em;
 			line-height: 2.8em;
@@ -3086,7 +3086,7 @@
 			height: 100%;
 			opacity: 0;
 			cursor: pointer;
-			background: rgba(0, 0, 0, 0.01);
+			background: rgba(0, 255, 140, 0.01);/* ELEIGR ENTRE AVANZAR IZQUIERDA O DERECHA */
 			-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 		}
 
@@ -3198,7 +3198,7 @@
 
 		/* Main */
 
-			.main.style2 .content {
+			.main.style2 .content { /* VENTANA QUE SE MUEVEN DESDE LOS LADOS */
 				width: 40%;
 			}
 
@@ -3386,7 +3386,7 @@
 		/* Header */
 
 			#header {
-				height: 2.5em;
+				/*height: 2.5em;*/ /* inhabilitado para centrar */
 				line-height: 2.5em;
 			}
 
@@ -3407,9 +3407,9 @@
 					font-size: 1em;
 				}
 
-			#nav {
+			/*#nav {
 				display: none;
-			}
+			}*/
 
 		/* Footer */
 
