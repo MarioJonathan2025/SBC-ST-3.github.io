@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Benvenutuo signore administradore al sistemi intranet</h1>
+
+    <script>
+        //sentencias repetitiva :for (para)
+        //array (arreglo): permite guardar letras y numeros
+        //Se hace arreglos para guardar en una Base de Datos
+
+        // var alumnos = new Array();
+        // alumnos[0] = "Francis";
+        // alumnos[1] = "Danny";
+        // alumnos[2] = "Ernesto";
+        // alumnos[3] = "Samir";
+        // alumnos[4] = "David";
+        // alumnos[5] = "Yaneth";
+        // alumnos[6] = "Lourdes";
+        // alumnos[7] = "Lesly";
+        // alumnos[8] = "Jhon";
+
+        // var notas = new Array();
+        // notas[0] = 18;
+        // notas[1] = 19;
+        // notas[2] = 18;
+        // notas[3] = 11;
+        // notas[4] = 18;
+        // notas[5] = 15;
+        // notas[6] = 13;
+        // notas[7] = 10;
+        // notas[8] = 18;
+
+        // for(var i=0; i<=8; i++){
+        //     alert(alumnos[i],notas[i]);
+        //     //console.log(alumnos[i]);
+        // }
+
+    </script>
+
+    <script>
+        //Declaramos un arra bidimensional "Dichiarare un array bidimensionale"
+        var nuevoArray = new Array();
+
+        nuevoArray[0] = new Array();
+        nuevoArray[1] = new Array();
+
+        //Declaramos un dato en cada posicion
+        nuevoArray[0][0] = "puma carranza";
+        nuevoArray[0][1] = 50;
+        nuevoArray[1][0] = "luis fonsi";
+        nuevoArray[1][1] = 42;
+
+        for(var i=0; i<2; i++){
+            document.write("<br>");
+            for(var j=0; j<2; j++){
+                document.write(nuevoArray[i][j]);
+            }
+        }
+    </script>
+
+</body>
+</html>
