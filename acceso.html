@@ -15,16 +15,16 @@
         //array (arreglo): permite guardar letras y numeros
         //Se hace arreglos para guardar en una Base de Datos
 
-        // var alumnos = new Array();
-        // alumnos[0] = "Francis";
-        // alumnos[1] = "Danny";
-        // alumnos[2] = "Ernesto";
-        // alumnos[3] = "Samir";
-        // alumnos[4] = "David";
-        // alumnos[5] = "Yaneth";
-        // alumnos[6] = "Lourdes";
-        // alumnos[7] = "Lesly";
-        // alumnos[8] = "Jhon";
+        var alumnos = new Array();
+        alumnos[0] = "Francis";
+        alumnos[1] = "Danny";
+        alumnos[2] = "Ernesto";
+        alumnos[3] = "Samir";
+        alumnos[4] = "David";
+        alumnos[5] = "Yaneth";
+        alumnos[6] = "Lourdes";
+        alumnos[7] = "Lesly";
+        alumnos[8] = "Jhon";
 
         // var notas = new Array();
         // notas[0] = 18;
@@ -39,30 +39,71 @@
 
         // for(var i=0; i<=8; i++){
         //     alert(alumnos[i],notas[i]);
-        //     //console.log(alumnos[i]);
+        //     console.log(alumnos[i]);
+
+        //     se pueden combinar varias etiquetas html
+        //     document.write("<br>",alumnos[i]);
+        //     document.write("<br><h1>",alumnos[i],"</h1>");
+        //     JAVASCRIPT SE GUARDAN EN EL NAVEGADOR
         // }
 
     </script>
 
     <script>
+        //::::::::::::::::::::::::::::::: FOR :::::::::::::::::::::::::::::::
         //Declaramos un arra bidimensional "Dichiarare un array bidimensionale"
         var nuevoArray = new Array();
 
         nuevoArray[0] = new Array();
         nuevoArray[1] = new Array();
+        nuevoArray[2] = new Array();
 
         //Declaramos un dato en cada posicion
         nuevoArray[0][0] = "puma carranza";
         nuevoArray[0][1] = 50;
+
         nuevoArray[1][0] = "luis fonsi";
         nuevoArray[1][1] = 42;
 
-        for(var i=0; i<2; i++){
-            document.write("<br>");
-            for(var j=0; j<2; j++){
-                document.write(nuevoArray[i][j]);
+        nuevoArray[2][0] = "Rossevelt";
+        nuevoArray[2][1] = 28;
+
+        // for(var i=0; i<3; i++){
+        //     document.write("<br>");
+        //     for(var j=0; j<2; j++){
+        //         document.write(nuevoArray[i][j]);
+        //     }
+        // }
+
+        //::::::::::::::::::::::::::::::: DO WHILE :::::::::::::::::::::::::::::::
+        var i=0;
+
+        // do {
+        //     //alert(alumnos[i]);
+        //     document.write("<br>", alumnos[i]);
+        //     i++;
+        // } while (i<=8);
+
+        while (i<=8) {
+            //document.write("<br>", alumnos[i]);
+            i++;
+        }
+
+        //:::::::::::::::::::::::::::: EJERCICIO 2: FOR ::::::::::::::::::::::::::::
+        //var i,nota,contador=0;
+        var i=0;
+        var nota=0;
+        var contador=0;
+
+        for(var i=1; i<=2; i++){
+            nota = prompt("Ingresar la nota del estudiante", i);
+
+            if (nota >= 10.5) {
+                contador = contador + 1;
             }
         }
+        document.write("La cantidad de estudiantes aprobado es: ", contador);
+
     </script>
 
 </body>
