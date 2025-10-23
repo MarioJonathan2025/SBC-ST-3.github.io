@@ -91,18 +91,31 @@
 
         //:::::::::::::::::::::::::::: EJERCICIO 2: FOR ::::::::::::::::::::::::::::
         //var i,nota,contador=0;
-        var i=0;
-        var nota=0;
-        var contador=0;
+        // var i=0;
+        // var nota=0;
+        // var contador=0;
 
-        for(var i=1; i<=2; i++){
-            nota = prompt("Ingresar la nota del estudiante", i);
+        // for(var i=1; i<=2; i++){
+        //     nota = prompt("Ingresar la nota del estudiante", i);
 
-            if (nota >= 10.5) {
+        //     if (nota >= 10.5) {
+        //         contador = contador + 1;
+        //     }
+        // }
+        // document.write("La cantidad de estudiantes aprobado es: ", contador);
+
+        var i = 0;
+        var sueldo = 0;
+        var contador = 0;
+
+        for(var i=1; i<=3; i++ ){
+            sueldo = prompt("Ingrese sueldo de trabajador: ", i, "");
+
+            if(sueldo>=1025){
                 contador = contador + 1;
             }
         }
-        document.write("La cantidad de estudiantes aprobado es: ", contador);
+        document.write("La cantidad de trabajadores que ganan desde 1025 son: ", contador);
 
     </script>
 
