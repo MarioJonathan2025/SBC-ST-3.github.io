@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Javascript</title>
+</head>
+<body>
+    <!------------------------------------------------------------------------------->
+    <h1>Ejemplo1:Ingresar un numero y visualizar el doble y su mitad.</h1>
+
+    <form name="form1" action="" method="post">
+        <table border="1">
+            <tr>
+                <td>Ingrese numero</td>
+                <td><input type="text" name="txtnum" value=""></td>
+            </tr>
+            <tr>
+                <td>Doble</td>
+                <td><input type="text" name="txtdoble" value="" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td>Mitad</td>
+                <td><input type="text" name="txtmitad" value="" readonly="readonly"></td>
+            </tr>
+
+            <tr>
+                <td><input type="reset" value="Nuevo"></td>
+                <td><input type="button" value="calcular" onclick="calcular();"></td>
+            </tr>
+        </table>
+        <hr>
+    </form>
+
+    <!------------------------------------------------------------------------------->
+    <h1>Ejemplo2: Validacion de Formulario</h1>
+
+    <form name="form1" method="post" action="pag2.jsp">
+
+        <table bgcolor="gray">
+            <tr>
+                <td>Nombre:</td>
+                <td><input type="text" name="txtnom" onkeypress="validarletra();"></td>
+            </tr>
+            <tr>
+                <td>Edad:</td>
+                <td><input type="text" name="txtedad" maxlength="3" onkeypress="validarnum();"></td>
+            </tr>
+            <tr>
+                <td>DNI:</td>
+                <td><input type="text" name="txtdni" maxlength="8" onkeypress="validarnum();"></td>
+            </tr>
+            <tr>
+                <td>Nacionalidad:</td>
+                <td>
+                    <select name="combo1" id="">
+                        <option value="0">Seleccione:</option>
+                        <option value="1">Peruana</option>
+                        <option value="2">Extranajera</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Sexo:</td>
+                <td>
+                    <input type="radio" name="rbtsexo" value="M">M
+                    <input type="radio" name="rbtsexo" value="F">F
+                </td>
+            </tr>
+            <tr>
+                <td>Contraseña:</td>
+                <td><input type="password" name="txtpass1"></td>
+            </tr>
+            <tr>
+                <td>Confirmar contraseña:</td>
+                <td>
+                    <input type="password" name="txtpass2">
+                </td>
+            </tr>
+        </table>
+
+        <input type="reset" value="Nuevo">
+        <input type="button" value="Enviar Consulta" onclick="validartodo();" name="" id="">
+
+    </form>
+
+    <script lang="javascript">
+        ////////////////////////////////////////////////////////////////////
+        //Ejemplo:Ingresar un numero y visualizar el doble y su mitad.
+        function calcular(){
+            var num;
+
+            num = parseInt(form1.txtnum.value);
+            form1.txtdoble.value = num * 2;
+            form1.txtmitad.value = num / 2;
+        }
+
+        ////////////////////////////////////////////////////////////////////
+        //Ejemplo2: Funcion para validar si la tecla presionada es un numero
+
+        function validarletra(){
+            t = window.event.keyCode;
+            if((t >= 65 && t<= 90) || (t >=97 && t <= 122) || t == 32 || t == 241 || t ==  209){
+                //si es mayúscula,minúscula,espacio o la ñ
+            }else{
+                alert('Error, solo se aceptan letras');
+                window.event.keyCode = 0;
+            }
+        }
+
+        function validarnum(){
+            t = window.event.keyCode;
+            if (t >= 48 && t <= 57){
+                //si entra aqui es un numero
+            }else{
+                alert('Error, solo se aceptan numeros');
+                window.event.keyCode = 0; //para que no se muestre la ultima tecla
+            }
+        }
+
+    </script>
+</body>
+</html>
