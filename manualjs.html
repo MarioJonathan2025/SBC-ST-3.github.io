@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manual Javascript</title>
 </head>
-<body>
+<body onload="llenar()">
     <!------------------------------------------------------------------------------->
     <h1>Ejemplo1:Ingresar un numero y visualizar el doble y su mitad.</h1>
 
@@ -35,7 +35,7 @@
     <!------------------------------------------------------------------------------->
     <h1>Ejemplo2: Validacion de Formulario</h1>
 
-    <form name="form1" method="post" action="pag2.jsp">
+    <form name="form1" method="post" onsubmit="return validartodo(event)">
 
         <table bgcolor="gray">
             <tr>
@@ -80,8 +80,60 @@
         </table>
 
         <input type="reset" value="Nuevo">
-        <input type="button" value="Enviar Consulta" onclick="validartodo();" name="" id="">
+        <input type="submit" value="Enviar Consulta">
 
+    </form>
+    
+    <hr>
+
+    <h1>Ejemplo3: Ingresar un dia y mes y mostrar el signo zodiacal que le corresponde</h1>
+    <form name="form3" action="" id="form3">
+        <table border="1">
+            <tr>
+                <td>Mes</td>
+                <td><input type="text" name="txtmes" value=""></td>
+            </tr>
+            <tr>
+                <td>Dia</td>
+                <td><input type="text" name="txtdia" value=""></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><img id="imagenS" src="img/varios-signos.jpg" width="70" height="70" name="imagen"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Mostrar" onclick="mostrarsigno()"></td>
+            </tr>
+        </table>
+    </form>
+    <hr>
+    <!------------------------------------------------------------------------------->
+    
+    <h1>Ejemplo4: Generar clave aleatoriamente</h1>
+
+    <form name="form4" action="">
+        <table border="0">
+            <tr>
+                <td><input type="button" value="&nbsp;" name="boton" onclick="poner(this)"></td>
+                <td><input type="button" value="&nbsp;" name="boton" onclick="poner(this)"></td>
+                <td><input type="button" value="&nbsp;" name="boton" onclick="poner(this)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="&nbsp;" name="boton" onclick="poner(this)"></td>
+                <td><input type="button" value="&nbsp;" name="boton" onclick="poner(this)"></td>
+                <td><input type="button" value="&nbsp;" name="boton" onclick="poner(this)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="&nbsp;" name="boton" onclick="poner(this)"></td>
+                <td><input type="button" value="&nbsp;" name="boton" onclick="poner(this)"></td>
+                <td><input type="button" value="&nbsp;" name="boton" onclick="poner(this)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="&nbsp;" name="boton" onclick="poner(this)"></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <br>clave <input type="text" name="txtclave">
     </form>
 
     <script lang="javascript">
@@ -116,6 +168,152 @@
                 alert('Error, solo se aceptan numeros');
                 window.event.keyCode = 0; //para que no se muestre la ultima tecla
             }
+        }
+
+        // function validartodo(){
+            // var cad = "";
+            // if (document.form1.txtnom.value == ""){
+            //     cad = cad + "\nIngrese Nombre";
+            // }
+
+            // if (document.form1.txtedad.value == ""){
+            //     cad = cad + "\nIngrese edad";
+            // }
+
+            // if (document.form1.txtdni.value == ""){
+            //     cad = cad + "\nIngrese DNI";
+            // }
+
+            // if (document.form1.combo1.value == "0"){
+            //     cad = cad + "\nSeleccione Nacionalidad";
+            // }
+
+            // if (document.form1.rbtsexo[0].checked == false && document.form1.rbtsexo[1].checked == false){
+            //     cad = cad + "\nSeleccione sexo"; //Se tiene 2 controles rbtsexo al tener el mismo nombre se 
+            //     // maneja como un arreglo de controles, por eso el rbtsexo[0],rbtsexo[1]
+            // }
+
+            // if (cad !== ""){ //si cad no esta vacio
+            //     alert(cad);
+            //     return false; //se hace un return para salir de la funcion
+            // }
+
+            // //Confirm muestra una caja de dialogo de confirmación donde se tendrá 2 botones “OK” y “Cancel”
+            // if (confirm("Desea Grabar") == true){ //Si presione OK al confirm.
+            //     document.form1.action="pag2.jsp"; //Estableciendo el action del form (a quien se va a llamar
+            //     document.form1.submit(); //Ejecutando el submit del formulario
+            // }
+        function validartodo(event){
+            var cad = "";
+            if (document.form1.txtnom.value == ""){
+                cad += "\nIngrese Nombre";
+            }
+            if (document.form1.txtedad.value == ""){
+                cad += "\nIngrese edad";
+            }
+            if (document.form1.txtdni.value == ""){
+                cad += "\nIngrese DNI";
+            }
+            if (document.form1.combo1.value == "0"){
+                cad += "\nSeleccione Nacionalidad";
+            }
+            if (!document.form1.rbtsexo[0].checked && !document.form1.rbtsexo[1].checked){
+                cad += "\nSeleccione sexo";
+            }
+            if (cad !== ""){
+                event.preventDefault();
+                alert(cad);
+                return false; // cancela envío al haber errores
+            }
+            if (!confirm("Desea Grabar")){
+                return false; // cancela envío si usuario cancela
+            }
+            return true; // permite envío si todo ok
+        }
+
+        ////////////////////////////////////////////////////////////////////
+        //Ejemplo3: Ingresar un dia y mes y mostrar el signo zodiacal que le corresponde
+
+        function mostrarsigno(){
+            mes = parseInt(document.form3.txtmes.value); //texto donde se ingresa el mes
+            dia = parseInt(document.form3.txtdia.value); //texto donde se ingresa el dia
+            alert(mes+"-"+dia);
+
+            switch (mes) {
+                case 1: //si es enero
+                    if (dia < 21){
+                        document.form3.imagen.src = "img/capricornio.png";
+                    }else{
+                        document.form3.imagen.src = "img/acuario.png";
+                    }                
+                    break;
+
+                case 2: //si es febrero
+                    if (dia < 20){
+                        document.form3.imagen.src="img/acuario.png";
+                    }else{
+                        document.form3.imagen.src="img/piscis.png";
+                    }
+                    break;
+
+                case 3: //si es marzo
+                    if (dia < 19){
+                        document.form3.imagen.src="img/piscis.png";
+                    }else{
+                        document.form3.imagen.src="img/ARIES.png";
+                    }
+                    break;
+
+                case 4: //si es abril
+                    if (dia <19){
+                        document.form3.imagen.src="img/ARIES.png";
+                    }else{
+                        document.form3.imagen.src="img/tauro.png";
+                    }
+                    break;
+
+                default:
+                    document.form3.imagen.src="img/varios-signos.png"
+                    break;
+            }
+        }
+
+        window.onkeydown = function(event) {
+            if (event.key === "F5") {
+                event.preventDefault(); // evita la recarga por defecto del navegador
+                document.getElementById("form3").reset(); // resetea los campos del formulario
+                document.getElementById("imagenS").src="img/varios-signos.jpg";
+            }
+        };
+
+        ////////////////////////////////////////////////////////////////////
+        //Ejemplo4: 
+        function Buscar(n){ //funcion que busca un numero en los botones
+            pos = -1;
+            for (i = 0; i < document.form4.boton.length; i++){ // document.form1.boton.length.- devuelve la 
+                //cantidad de elementos que tiene el arreglo boton
+                if (parseInt(document.form4.form4.boton[i].value) == n){
+                    pos = i;
+                    break;
+                }
+            }
+            return pos;
+        }
+
+        function llenar(){ //function para llenar los botones con numerous aletorios
+            cont = 0;
+            while (cont < 10){
+                n = parseInt(Math.random()*10); //se genera un numero aleatorio del 0 al 9
+                if (Buscar(n) == -1){ //Si no se encontro
+                    document.form4.boton[cont].value = n;  //agregamos al boton el numero aletorio
+                    cont ++;
+                }
+            }
+        }
+
+        function poner(caja){ //Aquí se recibe un parámetro que será el botón, para poner luego
+            //su valor en la caja de texto
+            document.form4.txtclave.value += caja.value;
         }
 
     </script>
