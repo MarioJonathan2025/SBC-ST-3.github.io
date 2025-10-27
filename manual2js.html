@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <input type="button" name="name" value="uno" onclick="nombreNuevo()">
+        <input type="reset" onclick="resetNombres()">
+    </div>
+    <br>
+    <div id="mostrarnombre"></div>
+
+    <script>
+
+        // 1 Lo basico
+        //function nombre(){
+        //     alert("sbn");
+        // }
+
+        // 2 Ingresa nombre y lo escribe, pero solo 1 ves
+        // var nombre;
+        // function nombre(){
+        //     nombre = prompt("ingrese su nombre: ");
+        //     alert(nombre);
+        //     document.getElementById("mostrarnombre").textContent = nombre;
+        // }
+
+        // 3 Ingresa nombre y lo escribe 1 ves y lo reescribre
+        // function nombreNuevo(){
+        //     var nombre;
+        //     nombre = prompt("ingrese su nombre: ");
+        //     alert(nombre);
+        //     document.getElementById("mostrarnombre").textContent = nombre;
+        // }
+
+        // 4 Ingresa nombre y lo escribe 1 ves y lo reescribre (con var fuera de la funcion)
+        var nombre;
+        function nombreNuevo(){
+            nombre = prompt("ingrese su nombre: ");
+            alert(nombre);
+            document.getElementById("mostrarnombre").textContent = nombre;
+        }
+
+        // 5 Ingresa nombres y los almacena hasta actualizar pagina
+        // function nombre() {
+        //     var nombre;
+        //     nombre = prompt("Ingrese su nombre:");
+        //     if (nombre && nombre.trim() !== "") {
+        //         var contenedor = document.getElementById("mostrarnombre");
+        //         // Añadir el nuevo nombre al contenido existente, con salto de línea
+        //         contenedor.innerHTML += nombre + "<br>";
+        //         alert(nombre);
+        //     }
+        // }
+
+        // 6 Ingresa nombres y los almacena aunque se actualice la pagina, 2 botones, uno y reestableer
+        
+        function nombreNuevo() {
+            var nombreIngresado = prompt("Ingrese su nombre:");
+            if (nombreIngresado && nombreIngresado.trim() !== "") {
+                var contenedor = document.getElementById("mostrarnombre");
+                // Cargar contenido previo
+                var nombresPrevios = contenedor.innerHTML;
+                // Agregar nuevo nombre con salto de línea
+                var nombresActualizados = nombresPrevios + nombreIngresado + "<br>";
+                contenedor.innerHTML = nombresActualizados;
+                // Guardar en localStorage para mantener datos tras recarga
+                localStorage.setItem("nombres", nombresActualizados);
+                alert(nombreIngresado);
+            }
+        }
+
+        // Al cargar la página, recuperar los nombres almacenados y mostrarlos
+        window.onload = function() {
+            const nombresGuardados = localStorage.getItem("nombres");
+            if (nombresGuardados) {
+                document.getElementById("mostrarnombre").innerHTML = nombresGuardados;
+            }
+        };
+
+        function resetNombres() {
+            // Limpiar el div que muestra los nombres
+            document.getElementById("mostrarnombre").innerHTML = "";
+            // Limpiar localStorage
+            localStorage.removeItem("nombres");
+        }
+
+        // 7 
+        
+        
+
+    </script>
+
+</body>
+</html>

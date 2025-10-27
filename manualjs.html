@@ -136,6 +136,29 @@
         <br>clave <input type="text" name="txtclave">
     </form>
 
+    <!------------------------------------ EJERCICO 7 --------------------------------------->
+    <form name="form7">
+        <table>
+            <tr>
+                <td><input type="text" name="txtletra" size="2"></td>
+                <td><input type="text" name="txtletra" size="2"></td>
+                <td><input type="text" name="txtletra" size="2"></td>
+                <td><input type="text" name="txtletra" size="2"></td>
+                <td><input type="text" name="txtletra" size="2"></td>
+                <td><input type="text" name="txtletra" size="2"></td>
+                <td><input type="text" name="txtletra" size="2"></td>
+                <td><input type="text" name="txtletra" size="2"></td>
+                <td><input type="text" name="txtletra" size="2"></td>
+                <td><input type="text" name="txtletra" size="2"></td>
+            </tr>
+        </table>
+
+        <br>Ingrese letra a buscar :<input type="text" name="txtbusca">
+        <input type="button" value="Buscar" onclick="buscar();">
+        <input type="button" value="Nuevo" onclick="iniciar();">
+    </form>
+
+
     <script lang="javascript">
         ////////////////////////////////////////////////////////////////////
         //Ejemplo:Ingresar un numero y visualizar el doble y su mitad.
@@ -278,13 +301,13 @@
             }
         }
 
-        window.onkeydown = function(event) {
-            if (event.key === "F5") {
-                event.preventDefault(); // evita la recarga por defecto del navegador
-                document.getElementById("form3").reset(); // resetea los campos del formulario
-                document.getElementById("imagenS").src="img/varios-signos.jpg";
-            }
-        };
+        // window.onkeydown = function(event) {
+        //     if (event.key === "F5") {
+        //         event.preventDefault(); // evita la recarga por defecto del navegador
+        //         document.getElementById("form3").reset(); // resetea los campos del formulario
+        //         document.getElementById("imagenS").src="img/varios-signos.jpg";
+        //     }
+        // };
 
         ////////////////////////////////////////////////////////////////////
         //Ejemplo4: 
@@ -305,17 +328,99 @@
             while (cont < 10){
                 n = parseInt(Math.random()*10); //se genera un numero aleatorio del 0 al 9
                 if (Buscar(n) == -1){ //Si no se encontro
-                    document.form4.boton[cont].value = n;  //agregamos al boton el numero aletorio
+                    document.form4.boton[cont].value=n;  //agregamos al boton el numero aletorio
                     cont ++;
                 }
             }
         }
 
-        function poner(caja){ //Aquí se recibe un parámetro que será el botón, para poner luego
+        function poner(this){ //Aquí se recibe un parámetro que será el botón, para poner luego
             //su valor en la caja de texto
-            document.form4.txtclave.value += caja.value;
+            document.form4.txtclave.value += this.value;
         }
 
+        ////////////////////////////////////////////////////////////////////
+        //Ejemplo5:  generar la tabla de multiplicar del 1 al 12
+        for (i = 1; i <= 12; i++){
+            document.write("<table border = '1'>");
+
+            for (j = 1; j <= 12; j++){
+                document.write("<tr>");
+                document.write("<td>" +i+ "</td>");
+                document.write("<td> * </td>");
+                document.write("<td>" +j+ "</td>");
+                document.write("<td> = </td>");
+                document.write("<td>" +(i*j)+ "</td>");
+                document.write("<tr>");
+            }
+            document.write("</table>");
+        }
+
+        ////////////////////////////////////////////////////////////////////
+        //Ejemplo6: Mostrar la fecha actual
+        function ponerfecha(){
+            var f=new Date();
+            var mes="",dia="";
+            switch(f.getMonth()){
+            case 0:mes="Enero";break;
+            case 1:mes="Febrero";break;
+            case 2:mes="Marzo";break;
+            case 3:mes="Abril";break;
+            case 4:mes="Mayo";break;
+            case 5:mes="Junio";break;
+            case 6:mes="Julio";break;
+            case 7:mes="Agosto";break;
+            case 8:mes="Setiembre";break;
+            case 9:mes="Octubre";break;
+            case 10:mes="Noviembre";break;
+            case 11:mes="Diciembre";break;
+            }
+            switch(f.getDay()){
+            case 0:dia="Domingo";break;
+            case 1:dia="Lunes";break;
+            case 2:dia="Martes";break;
+            case 3:dia="Miercoles";break;
+            case 4:dia="Jueves";break;
+            case 5:dia="Viernes";break;
+            case 6:dia="Sabado";break;
+            }
+            fec="Lima "+dia+ ", "+f.getDate()+" de "+mes+" del "+f.getFullYear();
+            document.write(fec);
+        }
+
+        ////////////////////////////////////////////////////////////////////
+        //Ejemplo7: adivina el pais
+        //Aqui se guardaran todos los paises
+        var paises=new Array("PERU","GUATEMALA","MEXICO","ITALIA","CUBA");
+        var cad="";
+        var cont=0;
+        //funcion para buscar la letra ingresada
+        function buscar(){
+        busca=document.form7.txtbusca.value;//la letra a buscar se guarda en la var “busca”
+        p=cad.indexOf(busca.toUpperCase());
+            //convierte la letra a buscar en mayusculas y se busca en cad
+            //indexOf devolvera la posicion de la letra a buscar
+            if(p>=0){ //si se encontro
+            document.form1.txtletra[p].value=cad.charAt(p);
+            //se extrae de cad la letra encontrada
+            }else{//si no lo encuentra estamos en un error
+            cont++;//contando el error
+            alert("Vas fallando "+cont);
+            }
+        if(cont>=3){//si se equivoco tres veces
+            alert("perdistes...");
+            }
+        }
+        //funcion para inicializar el juego
+        function iniciar(){
+        cont=0;22
+        p=parseInt(Math.random()*5);
+        cad=paises[p];//se guarda en cad un pais al azar
+        //recorremos todas las cajas de texto y lo limpiamos
+            for(i=0;i<document.form7.txtletra.length;i++){
+                document.form7.txtletra[i].value="";
+            }
+        }
     </script>
 </body>
 </html>
