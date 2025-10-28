@@ -10,12 +10,14 @@
     <section>
 
         <div class="action1">
+            <h3>1 Lo basico</h3>
             <input type="button" name="name" value="Uno" onclick="nombreNuevo1()">
         </div>
 
         <hr>
 
         <div class="action2a">
+            <h3>2-a Ingresa nombre y lo escribe, se reescribe, no se almacena (var fuera de la funcion) NO RECOMENDADO</h3>
             <input type="button" name="name" value="Due-a" onclick="nombreNuevo2a()">
             <div id="mostrarnombre2-a"></div>
         </div>
@@ -23,6 +25,7 @@
         <hr>
 
         <div class="action2b">
+            <h3>2-b Ingresa nombre y lo escribe, se reescribe, no se almacena (var dentro de la funcion) RECOMENDADO</h3>
             <input type="button" name="name" value="Due-b" onclick="nombreNuevo2b()">
             <div id="mostrarnombre2-b"></div>
         </div>
@@ -30,6 +33,7 @@
         <hr>
 
         <div class="action3">
+            <h3>3 Ingresa nombres, no cierra hasta que ingrese nombre, en filas aparte, los almacena hasta actualizar pagina</h3>
             <input type="button" name="name" value="Tre" onclick="nombreNuevo3()">
             <div id="mostrarnombre3"></div>
         </div>
@@ -37,6 +41,7 @@
         <hr>
 
         <div class="action4a">
+            <h3>4-a Ingresa nombres y los almacena aunque se actualice la pagina, 2 botones, uno y reestableer</h3>
             <input type="button" name="name" value="Quattro-a" onclick="nombreNuevo4a()">
             <input type="reset" onclick="resetNombres4a()">
             <div id="mostrarnombre4a"></div>
@@ -45,6 +50,7 @@
         <hr>
 
         <div class="action4b">
+            <h3>4-b Ingresa nombres, no cierra hasta que ingrese nombre y los almacena en flas aparte aunque se actualice la pagina, 2 botones, boton y reestableer</h3>
             <input type="button" name="name" value="Quattro-b" onclick="nombreNuevo4b()">
             <input type="reset" onclick="resetNombres4b()">
             <div id="mostrarnombre4b"></div>
@@ -117,7 +123,7 @@
             }
         };
 
-        function resetNombres4() {
+        function resetNombres4a() {
             // Limpiar el div que muestra los nombres
             document.getElementById("mostrarnombre4a").innerHTML = "";
             // Limpiar localStorage
@@ -146,18 +152,6 @@
             alert(nombreIngresado);
             
         }
-        //     if (nombreIngresado && nombreIngresado.trim() !== "") {
-        //         var contenedor = document.getElementById("mostrarnombre4a");
-        //         // Cargar contenido previo
-        //         var nombresPrevios = contenedor.innerHTML;
-        //         // Agregar nuevo nombre con salto de línea
-        //         var nombresActualizados = nombresPrevios + nombreIngresado + "<br>";
-        //         contenedor.innerHTML = nombresActualizados;
-        //         // Guardar en localStorage para mantener datos tras recarga
-        //         localStorage.setItem("nombres4a", nombresActualizados);
-        //         alert(nombreIngresado);
-        //     }
-        // }
 
         // Al cargar la página, recuperar los nombres almacenados y mostrarlos
         window.onload = function() {
