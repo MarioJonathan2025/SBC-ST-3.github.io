@@ -3,94 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Botones de accion - JS</title>
 </head>
 <body>
 
-    <div>
-        <input type="button" name="name" value="uno" onclick="nombreNuevo()">
-        <input type="reset" onclick="resetNombres()">
-    </div>
-    <br>
-    <div id="mostrarnombre"></div>
+    <section>
+
+        <div class="action1">
+            <input type="button" name="name" value="Uno" onclick="nombreNuevo1()">
+        </div>
+
+        <hr>
+
+        <div class="action2a">
+            <input type="button" name="name" value="Due-a" onclick="nombreNuevo2a()">
+            <div id="mostrarnombre2-a"></div>
+        </div>
+
+        <hr>
+
+        <div class="action2b">
+            <input type="button" name="name" value="Due-b" onclick="nombreNuevo2b()">
+            <div id="mostrarnombre2-b"></div>
+        </div>
+
+        <hr>
+
+        <div class="action3">
+            <input type="button" name="name" value="Tre" onclick="nombreNuevo3()">
+            <div id="mostrarnombre3"></div>
+        </div>
+
+        <hr>
+
+        <div class="action4a">
+            <input type="button" name="name" value="Quattro-a" onclick="nombreNuevo4a()">
+            <input type="reset" onclick="resetNombres4a()">
+            <div id="mostrarnombre4a"></div>
+        </div>
+        
+        <hr>
+
+        <div class="action4b">
+            <input type="button" name="name" value="Quattro-b" onclick="nombreNuevo4b()">
+            <input type="reset" onclick="resetNombres4b()">
+            <div id="mostrarnombre4b"></div>
+        </div>
+
+    </section>
+    
 
     <script>
 
-        // 1 Lo basico
-        //function nombre(){
-        //     alert("sbn");
-        // }
-
-        // 2 Ingresa nombre y lo escribe, pero solo 1 ves
-        // var nombre;
-        // function nombre(){
-        //     nombre = prompt("ingrese su nombre: ");
-        //     alert(nombre);
-        //     document.getElementById("mostrarnombre").textContent = nombre;
-        // }
-
-        // 3 Ingresa nombre y lo escribe 1 ves y lo reescribre
-        // function nombreNuevo(){
-        //     var nombre;
-        //     nombre = prompt("ingrese su nombre: ");
-        //     alert(nombre);
-        //     document.getElementById("mostrarnombre").textContent = nombre;
-        // }
-
-        // 4 Ingresa nombre y lo escribe 1 ves y lo reescribre (con var fuera de la funcion)
-        var nombre;
-        function nombreNuevo(){
-            nombre = prompt("ingrese su nombre: ");
-            alert(nombre);
-            document.getElementById("mostrarnombre").textContent = nombre;
+        //1 Lo basico
+        function nombreNuevo1(){
+            alert("sbn");
         }
 
-        // 5 Ingresa nombres y los almacena hasta actualizar pagina
-        // function nombre() {
-        //     var nombre;
-        //     nombre = prompt("Ingrese su nombre:");
-        //     if (nombre && nombre.trim() !== "") {
-        //         var contenedor = document.getElementById("mostrarnombre");
-        //         // Añadir el nuevo nombre al contenido existente, con salto de línea
-        //         contenedor.innerHTML += nombre + "<br>";
-        //         alert(nombre);
-        //     }
-        // }
+        //2-a Ingresa nombre y lo escribe, se reescribe, no se almacena (var fuera de la funcion) NO RECOMENDADO
+        var nombre;
+        function nombreNuevo2a(){
+            nombre = prompt("ingrese su nombre: ");
+            alert(nombre);
+            document.getElementById("mostrarnombre2-a").textContent = nombre;
+        }
 
-        // 6 Ingresa nombres y los almacena aunque se actualice la pagina, 2 botones, uno y reestableer
-        
-        function nombreNuevo() {
+        //2-b Ingresa nombre y lo escribe, se reescribe, no se almacena (var dentro de la funcion) RECOMENDADO
+        function nombreNuevo2b(){
+            var nombre;
+            nombre = prompt("ingrese su nombre: ");
+            alert(nombre);
+            document.getElementById("mostrarnombre2-b").textContent = nombre;
+        }
+
+
+        // 3 Ingresa nombres, no cierra hasta que ingrese nombre, en filas aparte, los almacena hasta actualizar pagina
+        function nombreNuevo3() {
+            var nombre = "";
+            // Repetir mientras el nombre esté vacío o solo espacios
+            while (!nombre || nombre.trim() === "") {
+                nombre = prompt("Ingrese su nombre:");
+                if (!nombre || nombre.trim() === "") {
+                    alert('Ingrese nombre por favor');
+                }
+            }
+            var contenedor = document.getElementById("mostrarnombre3");
+            contenedor.innerHTML += nombre + "<br>";
+            alert(nombre);
+        }
+
+
+        // 4-a Ingresa nombres y los almacena aunque se actualice la pagina, 2 botones, uno y reestableer
+        function nombreNuevo4a() {
             var nombreIngresado = prompt("Ingrese su nombre:");
             if (nombreIngresado && nombreIngresado.trim() !== "") {
-                var contenedor = document.getElementById("mostrarnombre");
+                var contenedor = document.getElementById("mostrarnombre4a");
                 // Cargar contenido previo
                 var nombresPrevios = contenedor.innerHTML;
                 // Agregar nuevo nombre con salto de línea
                 var nombresActualizados = nombresPrevios + nombreIngresado + "<br>";
                 contenedor.innerHTML = nombresActualizados;
                 // Guardar en localStorage para mantener datos tras recarga
-                localStorage.setItem("nombres", nombresActualizados);
+                localStorage.setItem("nombres4a", nombresActualizados);
                 alert(nombreIngresado);
             }
         }
 
         // Al cargar la página, recuperar los nombres almacenados y mostrarlos
         window.onload = function() {
-            const nombresGuardados = localStorage.getItem("nombres");
+            const nombresGuardados = localStorage.getItem("nombres4a");
             if (nombresGuardados) {
-                document.getElementById("mostrarnombre").innerHTML = nombresGuardados;
+                document.getElementById("mostrarnombre4a").innerHTML = nombresGuardados;
             }
         };
 
-        function resetNombres() {
+        function resetNombres4() {
             // Limpiar el div que muestra los nombres
-            document.getElementById("mostrarnombre").innerHTML = "";
+            document.getElementById("mostrarnombre4a").innerHTML = "";
             // Limpiar localStorage
-            localStorage.removeItem("nombres");
+            localStorage.removeItem("nombres4a");
         }
 
-        // 7 
-        
+        // 4-b Ingresa nombres, no cierra hasta que ingrese nombre y los almacena en flas aparte
+        // aunque se actualice la pagina, 2 botones, boton y reestableer
+        function nombreNuevo4b() {
+            var nombreIngresado = "";
+            // Repetir mientras el nombre esté vacío o solo espacios
+            while (!nombreIngresado || nombreIngresado.trim() === ""){
+                nombreIngresado = prompt("Ingrese su nombre:");
+                if (!nombreIngresado || nombreIngresado.trim() === ""){
+                    alert('Ingrese nombre por favor');
+                }
+            }
+            var contenedor = document.getElementById("mostrarnombre4b");
+            // Cargar contenido previo
+            var nombresPrevios = contenedor.innerHTML;
+            // Agregar nuevo nombre con salto de línea
+            var nombresActualizados = nombresPrevios + nombreIngresado + "<br>";
+            contenedor.innerHTML = nombresActualizados;
+            // Guardar en localStorage para mantener datos tras recarga
+            localStorage.setItem("nombres4b", nombresActualizados);
+            alert(nombreIngresado);
+            
+        }
+        //     if (nombreIngresado && nombreIngresado.trim() !== "") {
+        //         var contenedor = document.getElementById("mostrarnombre4a");
+        //         // Cargar contenido previo
+        //         var nombresPrevios = contenedor.innerHTML;
+        //         // Agregar nuevo nombre con salto de línea
+        //         var nombresActualizados = nombresPrevios + nombreIngresado + "<br>";
+        //         contenedor.innerHTML = nombresActualizados;
+        //         // Guardar en localStorage para mantener datos tras recarga
+        //         localStorage.setItem("nombres4a", nombresActualizados);
+        //         alert(nombreIngresado);
+        //     }
+        // }
+
+        // Al cargar la página, recuperar los nombres almacenados y mostrarlos
+        window.onload = function() {
+            const nombresGuardados = localStorage.getItem("nombres4b");
+            if (nombresGuardados) {
+                document.getElementById("mostrarnombre4b").innerHTML = nombresGuardados;
+            }
+        };
+
+        function resetNombres4b() {
+            // Limpiar el div que muestra los nombres
+            document.getElementById("mostrarnombre4b").innerHTML = "";
+            // Limpiar localStorage
+            localStorage.removeItem("nombres4b");
+        }
         
 
     </script>
