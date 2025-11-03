@@ -90,6 +90,8 @@
         }
 
         //:::::::::::::::::::::::::::: EJERCICIO 2: FOR ::::::::::::::::::::::::::::
+        // CREAR UN PROGRAMA QUE NOS PERMITE INGRESAR 2 NOTAS
+        //CUANDO INGRESEMOS UNA NOTA NOS DIGA SI ESTAMOS APROBADO O DESAPROBADOS
         //var i,nota,contador=0;
         // var i=0;
         // var nota=0;
@@ -104,18 +106,106 @@
         // }
         // document.write("La cantidad de estudiantes aprobado es: ", contador);
 
-        var i = 0;
-        var sueldo = 0;
-        var contador = 0;
+        //:::::::::::::::::::::::::::: EJERCICIO 3: FOR ::::::::::::::::::::::::::::
+        //CREAR UN PROGRAMA QUE INGRESE EL SUELDO DEL TRABAJADOR: S/ 1025.OO
+        //Y CUANTAS PERSONAR GANAN ESE SUELDO
+        // var i = 0;
+        // var sueldo = 0;
+        // var contador = 0;
 
-        for(var i=1; i<=3; i++ ){
-            sueldo = prompt("Ingrese sueldo de trabajador: ", i, "");
+        // for(var i=1; i<=3; i++ ){
+        //     sueldo = prompt("Ingrese sueldo de trabajador: ", i, "");
 
-            if(sueldo>=1025){
-                contador = contador + 1;
+        //     if(sueldo>=1025){
+        //         contador = contador + 1;
+        //     }
+        // }
+        // document.write("La cantidad de trabajadores que ganan desde 1025 son: ", contador);
+
+        //:::::::::::::::::::::::::::: EJERCICIO 4: FOR ::::::::::::::::::::::::::::
+        //CREAR UN PROGRAMA QUE MUESTRE EL NOMBRE DEL INSTITUTO 10 VECES
+        
+        // nombre = prompt("Ingrese el nombre del instituto: ");
+        // for (var i=1; i<=100000; i++){
+        //     document.write('<br>',i,' - ',nombre);
+        // }
+        
+
+        //:::::::::::::::::::::::::::: EJERCICIO 5: FOR ::::::::::::::::::::::::::::
+        //CEAR UN PROGRAMA PARA INGRESAR LAS 3 NOTAS DE ALUMNOS Y QUE DIGA CUANTAS
+        //NOTAS SON DESAPROBATORIAS
+
+        // var contadorA = 0;
+        // var contadorD = 0;
+        // var nota;
+
+        // for (var i = 1; i <= 3; i++){
+        //     nota = prompt("Ingresar nota: ");
+        //     if (nota >= 10.5){
+        //         alert('Nota aprobadoria');
+        //         contadorA = contadorA + 1;
+        //         document.write('<br>', i, ' aprobado con ', nota);
+        //     }else{
+        //         alert('Nota desaprobatoria');
+        //         contadorD = contadorD + 1;
+        //         document.write('<br>', i, ' desaprobado con ', nota);
+        //     }
+        // }
+        // document.write('<br>', "La cantidad de notas aprobatorias son: ", contadorA, '<br>');
+        // document.write("La cantidad de notas desaprobatorias son: ", contadorD);
+
+
+        //:::::::::::::::::::::::::::: EJERCICIO 6: FOR Y WHILE ::::::::::::::::::::::::::::
+        // CREAR UN PRORAMA QUE PERMITA INGRESAR 3 NOTAS DE ALUMNOS Y QUE NOS DIGA LA
+        // LA CANTIDAD DE ALUMNOS APROBADOS Y DESAPROBADOS Y LAS NOTAS DE CADA ALUMNO
+        // for (var i=1; i<=3; i++){
+        //     var aprobados = 0;
+        //     var desaprobados = 0;
+        //     var notas;
+
+        //     notas = prompt("Ingrese nota de estudiante: ");
+        //     if (notas>=10.5){
+        //         aprobados = aprobados + 1;
+        //     }else{
+        //         desaprobados = desaprobados + 1;
+        //     }
+        //     document.write('<br>', "Las notas son: ", '<br>');
+        //     document.write([notas] + '<br>');
+        // }
+        // document.write('<br>', "Cantidad de notas aprobadas:", aprobados);
+        // document.write('<br>', "Cantidad de notas desaprobadas:", desaprobados);
+
+        // OTRA FORMA **************************************************************
+
+        var aprobados = 0;
+        var desaprobados = 0;
+        var notas = [];
+        var suma = 0; // PARA PROMEDIO
+        var promedio; // PARA PROMEDIO
+
+        for (var i = 1; i <= 3; i++) {
+            var nota = prompt("Ingrese nota de estudiante:");
+            notas.push(nota);
+            
+            if (nota >= 10.5) {
+                aprobados++;
+            } else {
+                desaprobados++;
             }
         }
-        document.write("La cantidad de trabajadores que ganan desde 1025 son: ", contador);
+
+        document.write("Las notas son:<br>");
+        for (var j = 0; j < notas.length; j++) {
+            document.write(notas[j] + "<br>");
+            suma = suma + Number(notas[j]);  // PARA PROMEDIO
+        }
+
+        promedio = suma / notas.length; // PARA PROMEDIO
+
+        document.write("Cantidad de notas aprobadas: " + aprobados + "<br>");
+        document.write("Cantidad de notas desaprobadas: " + desaprobados + "<br>");
+        document.write("La nota promdio es: " + promedio + "<br>");
+
 
     </script>
 
