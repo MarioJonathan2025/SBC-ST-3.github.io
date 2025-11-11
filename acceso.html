@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <h1>Benvenutuo signore administradore al sistemi intranet</h1>
+    <h1>Benvenutuo signore amministradore al sistemi intranet</h1>
 
     <script>
         //sentencias repetitiva :for (para)
@@ -177,37 +177,111 @@
 
         // OTRA FORMA **************************************************************
 
-        var aprobados = 0;
-        var desaprobados = 0;
-        var notas = [];
-        var suma = 0; // PARA PROMEDIO
-        var promedio; // PARA PROMEDIO
+        // var aprobados = 0;
+        // var desaprobados = 0;
+        // var notas = [];
+        // var suma = 0; // PARA PROMEDIO
+        // var promedio; // PARA PROMEDIO
 
-        for (var i = 1; i <= 3; i++) {
-            var nota = prompt("Ingrese nota de estudiante:");
-            notas.push(nota);
+        // for (var i = 1; i <= 3; i++) {
+        //     var nota = prompt("Ingrese nota de estudiante:");
+        //     notas.push(nota);
             
-            if (nota >= 10.5) {
-                aprobados++;
-            } else {
-                desaprobados++;
-            }
-        }
+        //     if (nota >= 10.5) {
+        //         aprobados++;
+        //     } else {
+        //         desaprobados++;
+        //     }
+        // }
 
-        document.write("Las notas son:<br>");
-        for (var j = 0; j < notas.length; j++) {
-            document.write(notas[j] + "<br>");
-            suma = suma + Number(notas[j]);  // PARA PROMEDIO
-        }
+        // document.write("Las notas son:<br>");
+        // for (var j = 0; j < notas.length; j++) {
+        //     document.write(notas[j] + "<br>");
+        //     suma = suma + Number(notas[j]);  // PARA PROMEDIO
+        // }
 
-        promedio = suma / notas.length; // PARA PROMEDIO
+        // promedio = suma / notas.length; // PARA PROMEDIO
 
-        document.write("Cantidad de notas aprobadas: " + aprobados + "<br>");
-        document.write("Cantidad de notas desaprobadas: " + desaprobados + "<br>");
-        document.write("La nota promdio es: " + promedio + "<br>");
-
+        // document.write("Cantidad de notas aprobadas: " + aprobados + "<br>");
+        // document.write("Cantidad de notas desaprobadas: " + desaprobados + "<br>");
+        // document.write("La nota promdio es: " + promedio + "<br>");
 
     </script>
 
+    <script>
+        //////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///MANUAL JAVASCRIPT EJERCICIOS RESUELTOS-3
+        //Objeto String de JavaScript
+        document.write("Objetos String de JS");
+
+        cad="abcdefg"; c1 = cad.charAt(3);
+        cad="abcdefg"; c2 = cad.indexOf("c");
+        cad="abcdefg"; c3 = cad.substring(2,4);
+        cad="ABCDEFG"; c4 = cad.toLowerCase();
+        cad="abcdefg"; c5 = cad.toUpperCase();
+        cad="abcdefg"; c6 = cad.length;
+
+        document.write(c1 + '<br>');
+        document.write(c2 + '<br>');
+        document.write(c3 + '<br>');
+        document.write(c4 + '<br>');
+        document.write(c5 + '<br>');
+        document.write(c6 + '<br>');
+        document.write('<br>');
+        document.write('<br>');
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////
+        document.write("Objetos Math de JS" + '<br>');
+        var numero1 = 7;
+        var numero2 = 1;
+        var numero3 = 4.45;
+        var numero4 = 2;
+
+        a = Math.abs(numero1) + '<br>'; //Devuelve el valor absoluto del número pasado por parámetros
+        b = Math.acos(numero2) + '<br>'; //Devuelve el arco coseno del número pasado por parámetros
+        c = Math.asin(numero2) + '<br>'; //Devuelve el arco seno del número pasado por parámetros.
+        d = Math.atan(numero2) + '<br>'; //Devuelve la arco tangente del número pasado por parámetros
+        e = Math.ceil(numero3) + '<br>'; //Redondeo superior.
+        f = Math.cos(numero2) + '<br>'; //Devuelve el coseno del número pasado por parámetros
+        g = Math.exp(numero3) + '<br>'; //Devuelve e elevado al número pasado por parámetros
+        h = Math.floor(numero3) + '<br>'; //Devuelve la parte entera del número pasado por parámetros
+        i = Math.log(numero2) + '<br>'; //Devuelve el logaritmo neperiano del número pasado por parámetros
+        j = Math.max(numero1,numero2) + '<br>'; //Devuelve el máximo de dos valore
+        k = Math.min(numero1,numero2) + '<br>'; //Devuelve le mínimo de dos valores
+        l = Math.pow(numero1,numero4) + '<br>'; //Devuelve el resultado de elevar la base al exponente
+        m = Math.random() + '<br>'; //Devuelve el valor aleatorio entre cero y uno
+        n = Math.round(numero3) + '<br>'; // Redondeo inferior
+        o = Math.sin(numero2) + '<br>'; //Devuelve el seno del número pasado por parámetros
+        p = Math.sqrt(numero4) + '<br>'; //Devuelve la raíz cuadrada del número pasado por parámetros
+        q = Math.tan(numero2) + '<br>'; //Devuelve la tangente del número pasado por parámetros
+
+        document.write("a = ",a);
+        document.write("b = ",b);
+        document.write("c = ",c);
+        document.write("d = ",d);
+        document.write("e = ",e);
+        document.write("f = ",f);
+        document.write("g = ",g);
+        document.write("h = ",h);
+        document.write("i = ",i);
+        document.write("j = ",j);
+        document.write("k = ",k);
+        document.write("l = ",l);
+        document.write("m = ",m);
+        document.write("n = ",n);
+        document.write("o = ",o);
+        document.write("p = ",p);
+        document.write("q = ",q  + '<br>');
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////
+        document.write("Objetos String de JS")  + '<br>';
+
+        a1 = getDate() + '<br>'; //Devuelve el día del mes de 1 a 31
+
+        document.write("a1 = ",a1);
+
+
+    </script>
+    
 </body>
 </html>
